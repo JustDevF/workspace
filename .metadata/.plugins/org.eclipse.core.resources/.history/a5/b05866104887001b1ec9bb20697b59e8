@@ -1,0 +1,31 @@
+import java.util.ArrayList;
+
+public class programme {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		//instanciation 
+		Animal aAnimal = new Animal ("chien", "bool");
+		Animal bAnimal = new Animal ("pigeon", "oiseaux");
+		Animal cAnimal = new Animal ("chien", "bool");
+		Animal dAnimal = new Animal ("pigeon", "oiseaux");
+		
+		
+		//appel des méthodes
+		//listAnimaux.arriver(aAnimal);
+		ArrayList<Animal> listAnimaux = new ArrayList<Animal>();	
+		
+		Menagerie uneMenagerie = new Menagerie();
+		listAnimaux.add(aAnimal );
+		listAnimaux.add(bAnimal );
+		listAnimaux.add(cAnimal );
+		listAnimaux.add(dAnimal );
+		
+		uneMenagerie.arriver(dAnimal);
+		uneMenagerie.arriver(bAnimal);
+		
+		System.out.println(uneMenagerie.getNombreAnimaux());
+	}
+
+}

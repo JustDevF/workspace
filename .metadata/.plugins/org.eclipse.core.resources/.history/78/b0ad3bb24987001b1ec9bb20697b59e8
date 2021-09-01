@@ -1,0 +1,50 @@
+public class programme {
+
+	public static void main(String[] args) {
+		//instaciation 		
+		Menagerie uneMenagerie = new Menagerie();
+		int op = 0;
+		
+		System.out.println("*************OPTION***************");
+		System.out.println("1 : Afficher la ménagerie");
+		System.out.println("2 : Ajouter un animal");
+		System.out.println("3 : Supprimer un animal");
+		System.out.println("4 : Rechercher un animal");
+		System.out.println("5 : Quiter la ménagerie");
+		
+		
+		switch (op) {
+			case 1 :  System.out.println(uneMenagerie.presenter());
+				break;
+				
+		}
+		
+		
+	
+		
+		
+		//création de collection de liste des objets 
+		
+		//création des animaux
+		Animal animal1 = new Animal("oiseau", "mechant");
+		Animal aAnimal = new Animal ("chien", "bool");
+		Animal bAnimal = new Animal ("pigeon", "oiseaux");
+		Animal cAnimal = new Animal ("chien", "bool");
+		Animal dAnimal = new Animal ("pigeon", "oiseaux");
+				
+		
+		
+		//ajouter des animaux dans le tableau de liste
+		uneMenagerie.arriver(aAnimal);
+		uneMenagerie.arriver(bAnimal);
+		uneMenagerie.arriver(cAnimal);
+		uneMenagerie.arriver(animal1);
+				
+		System.out.println(uneMenagerie.getNombreAnimaux());
+		System.out.println(uneMenagerie.presenter());
+		System.out.println(uneMenagerie.rechercherAnimal(aAnimal));
+		
+		
+		
+	}
+}

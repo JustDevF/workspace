@@ -1,0 +1,11 @@
+package controle.connexion;
+
+//Les classes du package jakarta.persistence permettent d’accéder à la base et à ses données.
+import jakarta.persistence.EntityManager; 
+import jakarta.persistence.EntityManagerFactory; 
+import jakarta.persistence.EntityTransaction; 
+import jakarta.persistence.Persistence; 
+
+public class Connexion {
+
+}

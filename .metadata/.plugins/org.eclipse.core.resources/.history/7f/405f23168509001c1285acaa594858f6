@@ -1,0 +1,26 @@
+package depart;
+
+import java.awt.EventQueue;
+import dialogue.Fconnexion;
+
+/**
+ * Point de départ de l'application.
+ */
+public class Main implements Runnable {
+	//méthode principale
+	public static void main(String[] args) {
+		//message à afficher dès le lancement de l'applciation
+		System.out.println("Lancement du programme Java-Eclipse");
+		
+		EventQueue.invokeLater(new Main());
+	}
+
+	@Override
+	public void run() {
+		//afficher la fenêtre de connexion
+		Fconnexion frame = new Fconnexion();
+		frame.setLocationRelativeTo(null);
+		frame.setVisible(true);
+		System.out.println("Fenêtre de Connexion visible");
+	}
+}

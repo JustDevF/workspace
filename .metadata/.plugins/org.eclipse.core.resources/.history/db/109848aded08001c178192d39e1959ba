@@ -1,0 +1,5 @@
+package controle.connexion;
+
+public class Connexion {
+
+}

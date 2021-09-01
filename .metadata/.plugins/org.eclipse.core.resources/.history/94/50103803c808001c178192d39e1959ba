@@ -1,0 +1,246 @@
+package dialogue;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.Toolkit;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
+import java.awt.GridBagLayout;
+import javax.swing.JButton;
+import java.awt.GridBagConstraints;
+import java.awt.Color;
+import java.awt.Insets;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
+import javax.swing.JPasswordField;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+//Classe permettant de se connecter à l'applciation
+public class Fconnexion extends JFrame {
+	private static final long serialVersionUID = 1L;
+	
+	//Attributs d'instance graphique
+	private JPanel contentPane;
+	private JLabel JLabelTitre;
+	private JPanel panel_connexion;
+	private JLabel lblUtilisateur;
+	private JTextField txtSaisieUtilisateur;
+	private JLabel lblMotDePasse;
+	private JPasswordField pwdMotDePasse;
+	private JButton btnValidation;
+	private JTextPane txtpnInfo;
+	private final JPanel panel_actions = new JPanel();
+	private GridBagLayout gbl_panel_actions;
+	private JButton btnParamtres;
+	private JButton btnQuitter;
+	
+	/**
+	 * Lanceur de l'application 
+	 */
+	//constructeur
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Fconnexion frame = new Fconnexion();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Créer une fenêtre.
+	 */
+	public Fconnexion() {
+		
+		//propriétés du fenêtre
+		setTitle("Gestion");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Fconnexion.class.getResource("/images/connection/Customize-01-48-actif.png")));
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 714, 337);
+		
+		//propriétés du conteneur principal
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 15));
+		setContentPane(contentPane);
+		
+		//en haut au nord  du conteneur principal se trouve un JLabel contenant le titre et l'image
+		//propriétes de JLabel
+		JLabelTitre= new JLabel("Connexion au programme");
+		JLabelTitre.setIcon(new ImageIcon(Fconnexion.class.getResource("/images/connection/Shopping-Cart-05-48.png")));
+		JLabelTitre.setHorizontalAlignment(SwingConstants.CENTER);
+		JLabelTitre.setFont(new Font("Roboto Lt", Font.PLAIN, 20));
+		contentPane.add(JLabelTitre, BorderLayout.NORTH);
+		
+		//en bas au sud du conteneur principal se trouve un JPanel contenant les boutons servant à effectuer les actions standards.
+	    //GridBagLayout. Il s’agit d’un des layouts les plus puissants, permettant des placements variés
+		panel_connexion = new JPanel();
+		panel_connexion.setBackground(Color.WHITE);
+		panel_connexion.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.add(panel_connexion);
+		GridBagLayout gbl_panel_connexion = new GridBagLayout();
+		gbl_panel_connexion.columnWidths = new int[] {284, 525, 100};
+		gbl_panel_connexion.rowHeights = new int[] {26, 26, 0, 66, 0};
+		gbl_panel_connexion.columnWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
+		gbl_panel_connexion.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		panel_connexion.setLayout(gbl_panel_connexion);
+		
+		//Connexion utilisateur
+		//Identifiant
+		lblUtilisateur = new JLabel("Identifiant");
+		lblUtilisateur.setHorizontalAlignment(SwingConstants.TRAILING);
+		lblUtilisateur.setHorizontalTextPosition(SwingConstants.LEADING);
+		lblUtilisateur.setIcon(new ImageIcon(Fconnexion.class.getResource("/images/connection/Windows-8-Login-16.png")));
+		lblUtilisateur.setFont(new Font("Roboto Lt", Font.PLAIN, 15));
+		GridBagConstraints gbc_lblUtilisateur = new GridBagConstraints();
+		gbc_lblUtilisateur.fill = GridBagConstraints.HORIZONTAL;
+		gbc_lblUtilisateur.anchor = GridBagConstraints.LINE_END;
+		gbc_lblUtilisateur.insets = new Insets(0, 0, 5, 5);
+		gbc_lblUtilisateur.gridx = 0;
+		gbc_lblUtilisateur.gridy = 0;
+		panel_connexion.add(lblUtilisateur, gbc_lblUtilisateur);
+		UI.habiller(lblUtilisateur);
+		
+		//champs de saisie identifiant
+		txtSaisieUtilisateur = new JTextField();
+		GridBagConstraints gbc_txtSaisieUtilisateur = new GridBagConstraints();
+		gbc_txtSaisieUtilisateur.insets = new Insets(0, 0, 5, 5);
+		gbc_txtSaisieUtilisateur.fill = GridBagConstraints.HORIZONTAL;
+		gbc_txtSaisieUtilisateur.gridx = 1;
+		gbc_txtSaisieUtilisateur.gridy = 0;
+		panel_connexion.add(txtSaisieUtilisateur, gbc_txtSaisieUtilisateur);
+		txtSaisieUtilisateur.setColumns(10);
+		
+		//Mot de passe
+		lblMotDePasse = new JLabel("Mot de passe ");
+		lblMotDePasse.setFont(new Font("Roboto Lt", Font.PLAIN, 15));
+		lblMotDePasse.setHorizontalAlignment(SwingConstants.TRAILING);
+		lblMotDePasse.setHorizontalTextPosition(SwingConstants.LEADING);
+		lblMotDePasse.setIcon(new ImageIcon(Fconnexion.class.getResource("/images/connection/Key-16.png")));
+		GridBagConstraints gbc_lblMotDePasse = new GridBagConstraints();
+		gbc_lblMotDePasse.anchor = GridBagConstraints.EAST;
+		gbc_lblMotDePasse.insets = new Insets(0, 0, 5, 5);
+		gbc_lblMotDePasse.gridx = 0;
+		gbc_lblMotDePasse.gridy = 1;
+		panel_connexion.add(lblMotDePasse, gbc_lblMotDePasse);
+		
+		//champs de saisie de mot de passe
+		pwdMotDePasse = new JPasswordField();
+		GridBagConstraints gbc_pwdMotDePasse = new GridBagConstraints();
+		gbc_pwdMotDePasse.insets = new Insets(0, 0, 5, 5);
+		gbc_pwdMotDePasse.fill = GridBagConstraints.HORIZONTAL;
+		gbc_pwdMotDePasse.gridx = 1;
+		gbc_pwdMotDePasse.gridy = 1;
+		panel_connexion.add(pwdMotDePasse, gbc_pwdMotDePasse);
+		
+		
+		//bouton de validation
+		btnValidation = new JButton("Valider");
+		btnValidation.setBackground(new Color(153, 153, 153));
+		btnValidation.setForeground(new Color(0, 0, 0));
+		btnValidation.setFont(new Font("Roboto Lt", Font.BOLD, 17));
+		GridBagConstraints gbc_btnValidation = new GridBagConstraints();
+		gbc_btnValidation.insets = new Insets(0, 0, 5, 5);
+		gbc_btnValidation.gridx = 1;
+		gbc_btnValidation.gridy = 2;
+		panel_connexion.add(btnValidation, gbc_btnValidation);
+		
+		//champs d'information
+		txtpnInfo = new JTextPane();
+		txtpnInfo.setFont(new Font("Roboto Lt", Font.PLAIN, 12));
+		txtpnInfo.setText("Veuillez saisir  le nom de l'utilisateur et le mot de passe \r\npour accéder à l'application");
+		txtpnInfo.setForeground(Color.GRAY);
+		txtpnInfo.setBackground(Color.WHITE);
+		GridBagConstraints gbc_txtpnInfo = new GridBagConstraints();
+		gbc_txtpnInfo.gridwidth = 2;
+		gbc_txtpnInfo.insets = new Insets(5, 0, 0, 0);
+		gbc_txtpnInfo.fill = GridBagConstraints.HORIZONTAL;
+		gbc_txtpnInfo.gridx = 1;
+		gbc_txtpnInfo.gridy = 3;
+		panel_connexion.add(txtpnInfo, gbc_txtpnInfo);
+		contentPane.add(panel_actions, BorderLayout.SOUTH);
+		
+		//Conteneur en bas du conteneur principal
+		gbl_panel_actions = new GridBagLayout();
+		gbl_panel_actions.columnWidths = new int[] {10, 300, 200, 0, 0};
+		gbl_panel_actions.rowHeights = new int[] {30};
+		gbl_panel_actions.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0};
+		gbl_panel_actions.rowWeights = new double[]{0.0};
+		panel_actions.setLayout(gbl_panel_actions);
+		
+		//Bouton de paramètres
+		btnParamtres = new JButton("Paramètres");
+		    //ajouter l'écouteur des événements
+		    //classe adaptater permet éviter d’implémenter les méthodes n’ayant pas d’intérêt pour l’application
+		btnParamtres.addMouseListener(new MouseAdapter() {
+			@Override
+			//événement 1
+			public void mouseClicked(MouseEvent e) {
+				//action à affectuer
+				//méthode à appeler
+				parametre();
+			}
+			//on peut y mettre plusieurs événement
+		});
+		btnParamtres.setBackground(new Color(153, 153, 153));
+		btnParamtres.setFont(new Font("Roboto Lt", Font.BOLD, 15));
+		btnParamtres.setIcon(new ImageIcon(Fconnexion.class.getResource("/images/connection/Customize-01-48.png")));
+		GridBagConstraints gbc_btnParamtres = new GridBagConstraints();
+		gbc_btnParamtres.gridwidth = 2;
+		gbc_btnParamtres.anchor = GridBagConstraints.LINE_START;
+		gbc_btnParamtres.weightx = 1.0;
+		gbc_btnParamtres.insets = new Insets(0, 0, 0, 5);
+		gbc_btnParamtres.gridx = 0;
+		gbc_btnParamtres.gridy = 0;
+		panel_actions.add(btnParamtres, gbc_btnParamtres);
+		
+		//Bouton pour quitter l'application
+		btnQuitter = new JButton("Quitter");
+			//ajouter l'écouteur des événements
+		btnQuitter.addMouseListener(new MouseAdapter() {
+			@Override
+			//événement
+			public void mouseClicked(MouseEvent e) {
+				//action
+				quitter();
+			}
+		});
+		btnQuitter.setBackground(new Color(153, 153, 153));
+		btnQuitter.setFont(new Font("Roboto Lt", Font.BOLD, 15));
+		btnQuitter.setIcon(new ImageIcon(Fconnexion.class.getResource("/images/connection/Stop-48.png")));
+		GridBagConstraints gbc_btnQuitter = new GridBagConstraints();
+		gbc_btnQuitter.gridwidth = 3;
+		gbc_btnQuitter.anchor = GridBagConstraints.LINE_END;
+		gbc_btnQuitter.insets = new Insets(0, 0, 0, 5);
+		gbc_btnQuitter.gridx = 2;
+		gbc_btnQuitter.gridy = 0;
+		panel_actions.add(btnQuitter, gbc_btnQuitter);
+		
+		
+	}
+	
+	//méthode d'instance servant d'action quitter
+	protected void quitter() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	//méthode d'instance
+	protected void parametre() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+}

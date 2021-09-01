@@ -1,0 +1,27 @@
+public class programme {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//création de collection de liste des objets 
+		
+		//création des animaux
+		Animal animal1 = new Animal("oiseau", "mechant");
+		Animal aAnimal = new Animal ("chien", "bool");
+		Animal bAnimal = new Animal ("pigeon", "oiseaux");
+		Animal cAnimal = new Animal ("chien", "bool");
+		Animal dAnimal = new Animal ("pigeon", "oiseaux");
+				
+		//instaciation 		
+		Menagerie uneMenagerie = new Menagerie();
+		
+		//ajouter des animaux dans le tableau de liste
+		uneMenagerie.arriver(aAnimal);
+		uneMenagerie.arriver(bAnimal);
+		uneMenagerie.arriver(cAnimal);
+		uneMenagerie.arriver(animal1);
+				
+		System.out.println(uneMenagerie.getNombreAnimaux());
+		System.out.println(uneMenagerie.presenter());
+		System.out.println(uneMenagerie.rechercherAnimal(aAnimal));
+	}
+}

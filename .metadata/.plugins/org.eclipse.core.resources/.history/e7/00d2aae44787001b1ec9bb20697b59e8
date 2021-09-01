@@ -1,0 +1,113 @@
+import java.util.ArrayList;
+
+public class Menagerie {
+	//Les attributs
+		private ArrayList<Animal> listAnimaux;
+		
+		
+		//le constructeur
+		public Menagerie() {
+			this.listAnimaux = new ArrayList <Animal>();
+		}
+		
+		//méthode
+		public int getNombreAnimaux() {
+			return this.listAnimaux.size();
+		}
+		
+		//méthode
+		public String presenter() {
+			String entete = "**PRESENTATION DE LA MENAGERIE**";
+			String resultat = "";
+			if (this.listAnimaux.size() != 0) {
+				for (int i = 0; i < this.listAnimaux.size(); i++) {
+					resultat = this.listAnimaux.get(i).sePresenter();
+				}
+			}
+			else {
+				resultat = "La Managerie ne possède aucun animal";
+			}
+			return entete + resultat;
+		}
+		
+		//méthode
+			public boolean rechercherAnimal(Animal unAnimal) {
+				boolean rep = false;
+				int i = 0;
+				
+				if (this.listAnimaux.size() != 0) {
+					while(i < this.listAnimaux.size() && this.listAnimaux.get(i).equals(unAnimal)) {
+						i++;
+					}
+					
+					if (i < this.listAnimaux.size()) {
+						rep = true;
+					}
+				}
+				return rep;
+			}
+			
+			
+			//surcharge de la recherche 
+			public int rechercheAnimal(String unNom) {
+				int rep = 0;
+				int i = 0;
+				
+				if (this.listAnimaux.size() != 0) {
+					while(i < this.listAnimaux.size() && this.listAnimaux.get(i).nomAnimal().equals(unNom)) {
+						i++;
+					}
+					
+					if (i < this.listAnimaux.size()) {
+						rep = i;	
+					}
+				}
+				
+				return rep;
+			}
+			
+			
+			
+			public void arriver(Animal unAnimal) {
+				//rechercher l'animal s'il n'existe pas on le rajoute
+				if (! rechercherAnimal(unAnimal)) {
+					this.listAnimaux.add(unAnimal);	
+				}		
+			}
+			
+			//surcharge 
+			public void arriver(String unNom, String uneEspece) {
+				Animal unAnimal = new Animal(unNom, uneEspece);
+				if (! rechercherAnimal(unAnimal)) {
+					this.listAnimaux.add(unAnimal);	
+				}
+			}
+			
+			
+			
+			public void partir(Animal unAnimal) {
+				//rechercher l'animal s'il existe on le supprime
+				if (rechercherAnimal(unAnimal)) {
+					this.listAnimaux.remove(unAnimal);
+				}		
+			}
+			
+			
+			//surcharge de partir
+			public void partir(int index) {
+				this.listAnimaux.remove(index);
+			}
+			
+			
+			public boolean partir(String unNom) {
+				boolean rep = false;
+				int index = this.rechercheAnimal(unNom);
+				
+				if (index != -1){
+					this.listAnimaux.remove(index);
+					rep = true;
+				}
+				return rep;
+			}
+
+}

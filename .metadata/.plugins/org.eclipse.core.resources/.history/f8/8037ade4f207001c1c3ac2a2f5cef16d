@@ -1,0 +1,14 @@
+package dialogue;
+
+import javax.swing.JPanel;
+
+public class PClientRecherche extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	public PClientRecherche() {
+
+	}
+
+}

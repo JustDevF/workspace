@@ -1,0 +1,69 @@
+package dialogue;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.Toolkit;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JSeparator;
+
+public class FAccueil extends JFrame {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					FAccueil frame = new FAccueil();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public FAccueil() {
+		
+		//Fenêtre
+		setTitle("Accueil");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(FAccueil.class.getResource("/images/accueil/Shopping-Bag-128.png")));
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 555, 353);
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu mnFichier = new JMenu("Fichier");
+		menuBar.add(mnFichier);
+		
+		JSeparator separator = new JSeparator();
+		menuBar.add(separator);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
+		
+		JMenu mnVues = new JMenu("Vues");
+		menuBar.add(mnVues);
+		
+		
+		
+	}
+
+}

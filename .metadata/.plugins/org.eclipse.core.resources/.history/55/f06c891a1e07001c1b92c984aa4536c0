@@ -1,0 +1,25 @@
+package test; 
+ 
+import javax.persistence.Basic; 
+import javax.persistence.Entity; 
+import javax.persistence.EntityManager; 
+import javax.persistence.EntityManagerFactory; 
+import javax.persistence.Id; 
+import javax.persistence.Persistence; 
+ 
+@Entity 
+public class TestJPA { 
+    @Id 
+    private long clePrimaire; 
+     
+    @Basic 
+    private String message; 
+     
+    public static void main(String[] args) { 
+          EntityManagerFactory fabrique = 
+Persistence.createEntityManagerFactory("eni-acces"); 
+     
+          EntityManager em = fabrique.createEntityManager(); 
+          System.out.println(em.getProperties()); 
+    } 
+}
