@@ -601,7 +601,6 @@ public class PManagerieAjouterChien extends JPanel {
 		
 		boolean valide = uneMenagerie.ajoutAnnimal(chienAllemand);
 		
-		System.out.println(uneMenagerie.toString());
 		//vérifier que l'animal a bien été rajouté dans la liste de collection d'animal
 		if(valide) {
 			this.lblMessage.setText("Ajour réussie");

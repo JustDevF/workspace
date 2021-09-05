@@ -88,13 +88,14 @@ public class Menagerie {
 				
 		if (this.listAnimaux.size() != -1) {
 			//parcourir la collection pour faire correpondre le saisie saisie à celui des animaux de la collection
-			while(i < this.listAnimaux.size() && this.listAnimaux.get(i).getNom().equals(unNom)) {
+			while(i < this.listAnimaux.size() && !this.listAnimaux.get(i).getNom().equals(unNom)) {
 				i++;
 			}
 					
 			if (i < this.listAnimaux.size()) {
-				rep = i;	
+				rep = i;
 			}
+			
 		}
 				
 		return rep;
@@ -142,6 +143,7 @@ public class Menagerie {
 				//Animal chatFrancais = new Chat ("American curl", "Mimi", " domestique", "gris", "france");
 				Animal chienRue = new Chien ("MillitaryDog","Young", "Bouvier Bernois", "Chien millitaire", "Ville");
 				Animal chatAllemand = new Chat ("Bobtail japonais", "hitler", " domestique", "blanc", "allemand");
+				Animal chatRusse = new Chat ("Bobtail japonais", "Bua", " domestique", "blanc", "allemand");
 				
 				
 				//appel des méthodes 
@@ -159,15 +161,17 @@ public class Menagerie {
 				
 				uneMenagerie.ajoutAnnimal(chatAllemand);
 				uneMenagerie.ajoutAnnimal(chienRue);
+				uneMenagerie.ajoutAnnimal(chatRusse);
 				
 				
 				int indexAnimal = uneMenagerie.rechercheAnimal("hitler");
 				
 				//Afficher
 				
-				System.out.println(uneMenagerie.getNombreAnimaux() + " " + valide);
-				System.out.println(uneMenagerie.toString());
+				//System.out.println(uneMenagerie.getNombreAnimaux() + " " + valide);
+				//System.out.println(uneMenagerie.toString());
 				System.out.println(indexAnimal);
+				System.out.println(uneMenagerie.getListAnimaux());
 				
 				
 				
