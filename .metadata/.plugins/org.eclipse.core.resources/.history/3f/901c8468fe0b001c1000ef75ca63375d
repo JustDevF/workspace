@@ -1,0 +1,150 @@
+package dm;
+
+import java.util.ArrayList;
+
+//La classe ménagerie permet gérer les animaux par type d'association de classe
+public class Menagerie {
+	//Les attributs d'instance
+		//collection d'instance des animaux
+	private ArrayList<Animal> listAnimaux;
+	
+	//.....................................................................
+	//le constructeur
+	public Menagerie() {
+		this.listAnimaux = new ArrayList<Animal>();
+	}
+	
+	//.....................................................................
+	
+	//méthodes d'instances 
+	
+	public int getNombreAnimaux() {
+		return this.listAnimaux.size();
+	}
+	
+	//méthode to string pour afficher les animaux présents dans la collection
+	@Override
+	public String toString() {
+		String afficher = "\n Les animaux présents dans la ménagerie : \n";
+		afficher += "\n Nombre des animaux : " + this.getNombreAnimaux();
+		
+		//vérifier que la connection des animaux contient des animaux 
+		if(this.getNombreAnimaux() != 0) {
+			//boucle pour afficher la méthode toString de chaque instance d'animal dans la connection d'instance des animaux
+			for(int i = 0; i < this.listAnimaux.size(); i++) {
+				afficher += this.listAnimaux.get(i).toString();
+			}
+		} else {
+			afficher = "La Managerie ne possède aucun animal";
+		}
+		
+		return afficher;
+		
+	}
+	
+	//ajouter un chat
+	public boolean ajoutChat(Chat unChat) {
+		boolean verifierAnimal = false;
+		//vérifier si l'animal n'existe pas avant de l'ajouter
+		
+		//instancier un chat par transtypage ascendant car la classe animal est abstraite donc elle ne peut pas être instancier
+		this.listAnimaux.add(unChat);	
+		
+		return verifierAnimal;
+	}
+	
+	
+	//ajout d'animal méthode de surcharge 
+	public boolean ajoutChat(String nomAnimal, String especeAnimal, String uneRace, String uneCouleur, String uneOrigine) {
+		boolean verifierAnimal = false;
+		//vérifier si l'animal n'existe pas avant de l'ajouter
+		
+		//instancier un chat par transtypage ascendant car la classe animal est abstraite donc elle ne peut pas être instancier
+		Animal unAnimal = new Chat(nomAnimal, especeAnimal,uneRace,uneCouleur,uneOrigine );
+		
+		this.listAnimaux.add(unAnimal);
+		
+		return verifierAnimal;
+		
+	}
+	
+	
+	//ajouter un chat
+	public boolean ajoutChat(Chien unChien) {
+		boolean verifierAnimal = false;
+		//vérifier si l'animal n'existe pas avant de l'ajouter
+			
+		//instancier un chat par transtypage ascendant car la classe animal est abstraite donc elle ne peut pas être instancier
+		this.listAnimaux.add(unChien);	
+			
+		return verifierAnimal;
+	}
+		
+	//Ajouter un chien méthode de surchage 
+	public boolean ajoutChien(String nomAnimal, String especeAnimal, String uneRace, String unTypeEducation, String unEnvironnement) {
+		boolean verifierAnimal = false;
+		//vérifier si l'animal n'existe pas avant de l'ajouter
+		
+		//instancier un chat non animal car la classe animal est abstraite donc pas instanciation
+		Animal unAnimal = new Chat(nomAnimal, especeAnimal,uneRace,unTypeEducation,unEnvironnement );
+		
+		this.listAnimaux.add(unAnimal);
+		
+		return verifierAnimal;
+		
+	}
+	
+	
+	//rechercher animal
+	public boolean rechercherAnimal(Animal unAnimal) {
+		boolean rep = false;
+		
+		if (this.listAnimaux.contains(unAnimal)){
+			rep = true;
+		}
+		
+		return rep;
+	}
+	
+	//recherche animal méthode de surcharge
+	public int rechercheAnimal(String unNom) {
+		int rep = -1;
+		int i = 0;
+				
+		if (this.listAnimaux.size() != -1) {
+			//parcourir la collection pour faire correpondre le saisie saisie à celui des animaux de la collection
+			while(i < this.listAnimaux.size() && this.listAnimaux.get(i).getNom().equals(unNom)) {
+				i++;
+			}
+					
+			if (i < this.listAnimaux.size()) {
+				rep = i;	
+			}
+		}
+				
+		return rep;
+	}
+	
+	
+	public String[][] rechercheAnimalC(String nomClient) {
+		
+		//vérifier si le champs nom saisie n'est pas vide et qu'il y a des animaux dans la collection
+		if(nomClient != null & this.listAnimaux.size() != 0) {
+			int nbrAnimaux = this.getNombreAnimaux();
+			int nbrInstances = this.listAnimaux.get(1).nombreProprieteTotal();
+			Object[][] data = new Object[nbrAnimaux][];
+			
+		}
+		
+		
+		
+		return null;
+		
+		
+	} 
+	
+	
+	//.....................................................................
+	
+	
+}

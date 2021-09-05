@@ -347,7 +347,7 @@ public class FAccueil extends JFrame {
 	protected void afficherClients() {
 		JDialog FClients = new JDialog();
 		PClients clients = new PClients();
-		//créer une fenêtre pour l'instance du panneau PClients
+		//créer une fenêtre pour l'instance du panneau PMenagerieAjouterChat
 		
 		//propriétés du fenêtre
 		//ajouter le panneau au fenêtre

@@ -1,0 +1,13 @@
+package client;
+
+public class Clients {
+	private String prenom;
+	private String nom;
+	private String adresse;
+	private String 
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

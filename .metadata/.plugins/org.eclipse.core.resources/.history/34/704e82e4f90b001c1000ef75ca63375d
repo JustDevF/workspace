@@ -1,0 +1,41 @@
+package dm;
+
+import java.util.ArrayList;
+
+//La classe ménagerie permet gérer les animaux par type d'association de classe
+public class Menagerie {
+	//Les attributs d'instance
+		//collection d'instance des animaux
+	private ArrayList<Animal> listAnimaux;
+
+	public Menagerie() {
+		this.listAnimaux = new ArrayList<Animal>();
+	}
+	
+	//méthode
+	public int getNombreAnimaux() {
+		return this.listAnimaux.size();
+	}
+	
+	//méthode to string pour afficher les animaux présents dans la collection
+	@Override
+	public String toString() {
+		String afficher = "\n Les animaux présents dans la ménagerie : \n";
+		afficher += "\n Nombre des animaux : " + this.getNombreAnimaux();
+		
+		
+		//vérifier que la connection des animaux contient des animaux 
+		if(this.getNombreAnimaux() != 0) {
+			//boucle pour afficher la méthode toString de chaque instance d'animal dans la connection d'instance des animaux
+			for(int i = 0; i < this.listAnimaux.size(); i++) {
+				afficher += this.listAnimaux.get(i).toString();
+			}
+		} else {
+			afficher = "La Managerie ne possède aucun animal";
+		}
+		
+		return afficher;
+		
+	}
+
+}

@@ -1,0 +1,14 @@
+package fenetres;
+
+import javax.swing.JPanel;
+
+public class PManagerieAjouterChien extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	public PManagerieAjouterChien() {
+
+	}
+
+}

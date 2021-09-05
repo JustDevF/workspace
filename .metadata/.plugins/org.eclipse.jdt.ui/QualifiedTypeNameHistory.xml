@@ -27,7 +27,6 @@
     <fullyQualifiedTypeName name="java.awt.Insets"/>
     <fullyQualifiedTypeName name="javax.swing.JButton"/>
     <fullyQualifiedTypeName name="javax.swing.SwingConstants"/>
-    <fullyQualifiedTypeName name="dialogue.UI"/>
     <fullyQualifiedTypeName name="javax.swing.border.TitledBorder"/>
     <fullyQualifiedTypeName name="javax.swing.border.LineBorder"/>
     <fullyQualifiedTypeName name="java.time.Instant"/>
@@ -48,8 +47,6 @@
     <fullyQualifiedTypeName name="commande.FCommandes"/>
     <fullyQualifiedTypeName name="javax.swing.JDialog"/>
     <fullyQualifiedTypeName name="client.PClients"/>
-    <fullyQualifiedTypeName name="com.sun.jdi.event.EventQueue"/>
-    <fullyQualifiedTypeName name="java.awt.EventQueue"/>
     <fullyQualifiedTypeName name="com.mysql.cj.xdevapi.Statement"/>
     <fullyQualifiedTypeName name="java.sql.Statement"/>
     <fullyQualifiedTypeName name="com.mysql.cj.jdbc.DatabaseMetaData"/>
@@ -59,4 +56,8 @@
     <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
     <fullyQualifiedTypeName name="org.eclipse.persistence.exceptions.DatabaseException"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.sun.jdi.event.EventQueue"/>
+    <fullyQualifiedTypeName name="java.awt.EventQueue"/>
+    <fullyQualifiedTypeName name="dialogue.UI"/>
 </qualifiedTypeNameHistroy>

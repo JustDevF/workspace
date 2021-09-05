@@ -1,0 +1,77 @@
+package dm;
+
+import java.util.ArrayList;
+
+//La classe ménagerie permet gérer les animaux par type d'association de classe
+public class Menagerie {
+	//Les attributs d'instance
+		//collection d'instance des animaux
+	private ArrayList<Animal> listAnimaux;
+
+	public Menagerie() {
+		this.listAnimaux = new ArrayList<Animal>();
+	}
+	
+	//méthode
+	public int getNombreAnimaux() {
+		return this.listAnimaux.size();
+	}
+	
+	//méthode to string pour afficher les animaux présents dans la collection
+	@Override
+	public String toString() {
+		String afficher = "\n Les animaux présents dans la ménagerie : \n";
+		afficher += "\n Nombre des animaux : " + this.getNombreAnimaux();
+		
+		//vérifier que la connection des animaux contient des animaux 
+		if(this.getNombreAnimaux() != 0) {
+			//boucle pour afficher la méthode toString de chaque instance d'animal dans la connection d'instance des animaux
+			for(int i = 0; i < this.listAnimaux.size(); i++) {
+				afficher += this.listAnimaux.get(i).toString();
+			}
+		} else {
+			afficher = "La Managerie ne possède aucun animal";
+		}
+		
+		return afficher;
+		
+	}
+	
+	
+	//rechercher les animaux 
+	public boolean rechercherAnimal(Animal unAnimal) {
+		return false;}
+	
+
+	
+	//ajout d'animal méthode de surcharge 
+	public boolean ajoutChat(String nomAnimal, String especeAnimal, String uneRace, String uneCouleur, String uneOrigine) {
+		boolean verifierAnimal = false;
+		//vérifier si l'animal n'existe pas avant de l'ajouter
+		
+		//instancier un chat par transtypage ascendant car la classe animal est abstraite donc elle ne peut pas être instancier
+		Animal unAnimal = new Chat(nomAnimal, especeAnimal,uneRace,uneCouleur,uneOrigine );
+		
+		this.listAnimaux.add(unAnimal);
+		
+		return verifierAnimal;
+		
+	}
+	
+	public boolean ajoutChien(String nomAnimal, String especeAnimal, String uneRace, String unTypeEducation, String unEnvironnement) {
+		boolean verifierAnimal = false;
+		//vérifier si l'animal n'existe pas avant de l'ajouter
+		
+		//instancier un chat non animal car la classe animal est abstraite donc pas instanciation
+		Animal unAnimal = new Chat(nomAnimal, especeAnimal,uneRace,unTypeEducation,unEnvironnement );
+		
+		this.listAnimaux.add(unAnimal);
+		
+		return verifierAnimal;
+		
+	}
+	
+	
+	
+	
+}

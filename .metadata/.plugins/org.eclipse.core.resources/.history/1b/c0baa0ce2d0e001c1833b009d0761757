@@ -1,0 +1,14 @@
+package fenetres;
+
+import javax.swing.JPanel;
+
+public class PAfficherAnimaux extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	public PAfficherAnimaux() {
+
+	}
+
+}

@@ -274,8 +274,6 @@ public class Connexion {
 			//Variables locales
 			ResultSet resultat = null;
 			Object[][] data = new Object[1][12];
-			
-			data[0][0] = "text";
 		
 				 
 			//Utilisation de requêtes préparées

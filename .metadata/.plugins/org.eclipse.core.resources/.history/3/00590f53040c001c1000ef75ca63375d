@@ -1,0 +1,194 @@
+package dm;
+
+import java.util.ArrayList;
+
+//La classe ménagerie permet gérer les animaux par type d'association de classe
+public class Menagerie {
+	//Les attributs d'instance
+		//collection d'instance des animaux
+	private ArrayList<Animal> listAnimaux;
+	
+	//.....................................................................
+	//le constructeur
+	public Menagerie() {
+		this.listAnimaux = new ArrayList<Animal>();
+	}
+	
+	//.....................................................................
+	
+	//méthodes d'instances 
+	
+	public int getNombreAnimaux() {
+		return this.listAnimaux.size();
+	}
+	
+	//méthode to string pour afficher les animaux présents dans la collection
+	@Override
+	public String toString() {
+		String afficher = "\n Les animaux présents dans la ménagerie : \n";
+		afficher += "\n Nombre des animaux : " + this.getNombreAnimaux();
+		
+		//vérifier que la connection des animaux contient des animaux 
+		if(this.getNombreAnimaux() != 0) {
+			//boucle pour afficher la méthode toString de chaque instance d'animal dans la connection d'instance des animaux
+			for(int i = 0; i < this.listAnimaux.size(); i++) {
+				afficher += this.listAnimaux.get(i).toString();
+			}
+		} else {
+			afficher = "La Managerie ne possède aucun animal";
+		}
+		
+		return afficher;
+		
+	}
+	
+	
+	//méthode consultation
+	public Object[][] consultationAnimal() {
+		int nbrAnimaux = this.getNombreAnimaux();
+		int nbrInstances = this.listAnimaux.get(1).nombreProprieteTotal();
+		Object[][] data = new Object[nbrAnimaux][nbrInstances];
+		
+		///vérifier que la collection des animaux contient des animaux 
+		if(this.listAnimaux.size() != 0) {
+			//parcourir la collection
+			//double boules pour initialiser initialiser le tableau de type objet à deux dimensions
+			for(int i = 0; i < this.listAnimaux.size(); i++) {
+				for(int j = 0; j < nbrInstances; i++) {
+					data[i][j] = this.listAnimaux.get(i).toString();
+				}
+				
+			}
+			
+			
+		} else {
+			data[0][1] = "La collection est vide ou le nom est vide";
+		}
+		
+		
+		return data;
+		
+	}
+	
+	
+	
+	//ajouter un chat
+	public boolean ajoutChat(Chat unChat) {
+		boolean verifierAnimal = false;
+		//vérifier si l'animal n'existe pas avant de l'ajouter
+		
+		//instancier un chat par transtypage ascendant car la classe animal est abstraite donc elle ne peut pas être instancier
+		this.listAnimaux.add(unChat);	
+		
+		return verifierAnimal;
+	}
+	
+	
+	//ajouter un chat méthode de surcharge 
+	public boolean ajoutChat(String nomAnimal, String especeAnimal, String uneRace, String uneCouleur, String uneOrigine) {
+		boolean verifierAnimal = false;
+		//vérifier si l'animal n'existe pas avant de l'ajouter
+		
+		//instancier un chat par transtypage ascendant car la classe animal est abstraite donc elle ne peut pas être instancier
+		Animal unAnimal = new Chat(nomAnimal, especeAnimal,uneRace,uneCouleur,uneOrigine );
+		
+		this.listAnimaux.add(unAnimal);
+		
+		return verifierAnimal;
+		
+	}
+	
+	
+	//ajouter un chien
+	public boolean ajoutChat(Chien unChien) {
+		boolean verifierAnimal = false;
+		//vérifier si l'animal n'existe pas avant de l'ajouter
+			
+		//instancier un chat par transtypage ascendant car la classe animal est abstraite donc elle ne peut pas être instancier
+		this.listAnimaux.add(unChien);	
+			
+		return verifierAnimal;
+	}
+		
+	//Ajouter un chien méthode de surchage 
+	public boolean ajoutChien(String nomAnimal, String especeAnimal, String uneRace, String unTypeEducation, String unEnvironnement) {
+		boolean verifierAnimal = false;
+		//vérifier si l'animal n'existe pas avant de l'ajouter
+		
+		//instancier un chat non animal car la classe animal est abstraite donc pas instanciation
+		Animal unAnimal = new Chat(nomAnimal, especeAnimal,uneRace,unTypeEducation,unEnvironnement );
+		
+		this.listAnimaux.add(unAnimal);
+		
+		return verifierAnimal;
+		
+	}
+	
+	
+	//rechercher animal
+	public boolean rechercherAnimal(Animal unAnimal) {
+		boolean rep = false;
+		
+		if (this.listAnimaux.contains(unAnimal)){
+			rep = true;
+		}
+		
+		return rep;
+	}
+	
+	//recherche animal méthode de surcharge renvoie un entier car la collection à besoin d'index de l'instance d'un animal pour le supprimer de la liste
+	public int rechercheAnimal(String unNom) {
+		int rep = -1;
+		int i = 0;
+				
+		if (this.listAnimaux.size() != -1) {
+			//parcourir la collection pour faire correpondre le saisie saisie à celui des animaux de la collection
+			while(i < this.listAnimaux.size() && this.listAnimaux.get(i).getNom().equals(unNom)) {
+				i++;
+			}
+					
+			if (i < this.listAnimaux.size()) {
+				rep = i;	
+			}
+		}
+				
+		return rep;
+	}
+	
+	
+	//supprimer un animal 
+	public void supprimerAnimal(Animal unAnimal) {
+		//rechercher l'animal s'il existe on le supprime
+		if (rechercherAnimal(unAnimal)) {
+			this.listAnimaux.remove(unAnimal);
+		}		
+	}
+	
+	//surcharge de la méthode supprimer
+	public void supprimer(int index) {
+		this.listAnimaux.remove(index);
+	}
+	
+	
+	public boolean partir(String unNom) {
+		boolean rep = false;
+		int index = this.rechercheAnimal(unNom);
+		
+		if (index != -1){
+			this.listAnimaux.remove(index);
+			rep = true;
+		}
+		return rep;
+	}
+
+	
+
+	
+		
+	
+	
+	
+	//.....................................................................
+	
+	
+}
